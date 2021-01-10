@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import logoPic from "../../image/nav-logo.png";
+import logoPic from "../../image/eStudio.png";
 
 export const HeaderWrapper = styled.div`
   position: relative;
@@ -13,10 +13,12 @@ export const Logo = styled.a.attrs({
   position: absolute;
   top: 0;
   left: 0;
+  object-fit: cover;
+  margin-left: 50px;
   width: 100px;
   height: 56px;
   display: block;
-  background: url(${logoPic});
+  background: url(${logoPic}) no-repeat;
   background-size: contain;
 `;
 
@@ -48,8 +50,8 @@ export const NavItem = styled.div`
 export const SearchWrapper = styled.div`
   position: relative;
   float: left;
-
-  .iconfont {
+  margin-left: 20px;
+  .zoom {
     position: absolute;
     right: 5px;
     bottom: 5px;
@@ -126,6 +128,8 @@ export const Button = styled.div`
 `;
 
 export const SearchInfo = styled.div`
+  z-index: 10;
+  background: #fff;
   position: absolute;
   left: 0;
   top: 56px;
@@ -145,6 +149,16 @@ export const SearchInfoTitle = styled.div`
 export const SearchInfoSwitch = styled.span`
   float: right;
   font-size: 13px;
+  cursor: pointer;
+  .spin {
+    size: 12px;
+    margin-right: 2px;
+    transition: all 0.2s ease-in;
+
+    display: block;
+    float: left;
+    transform-origin: center center;
+  }
 `;
 
 export const SearchInfoItem = styled.a`
