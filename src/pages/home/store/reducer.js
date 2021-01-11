@@ -48,8 +48,8 @@ const defaultState = fromJS({
   articleList: [
     {
       id: 1,
-      like:172,
-      comment:80,
+      like: 172,
+      comment: 80,
       title:
         '"A letter from a strange woman": I have loved you for a lifetime,but you know nothing',
       desc:
@@ -59,8 +59,8 @@ const defaultState = fromJS({
     },
     {
       id: 2,
-      like:108,
-      comment:30,
+      like: 108,
+      comment: 30,
       title:
         "I am a married man and fell in love with a girl. How can I continue my life?",
       desc:
@@ -70,8 +70,8 @@ const defaultState = fromJS({
     },
     {
       id: 3,
-      like:312,
-      comment:137,
+      like: 312,
+      comment: 137,
       title:
         "She suspects that her husband has ulterior motives for her daughter",
       desc:
@@ -81,8 +81,8 @@ const defaultState = fromJS({
     },
     {
       id: 4,
-      like:548,
-      comment:202,
+      like: 548,
+      comment: 202,
       title: "There is a lot of X love in the bar.",
       desc:
         "1. When Lin Han rushed to the hospital after answering the phone, Du Xiaoyue was infusion. Acute stomach bleeding is not the first time. When I met Du Xiaoyue, her stomach was missing. Lin Han walked over and looked at the infusion bag...",
@@ -108,9 +108,11 @@ const defaultState = fromJS({
   ],
 });
 
-export default (state = defaultState, action) => {
+const B = (state = defaultState, action) => {
   switch (action.type) {
     default:
       return state;
   }
 };
+
+export default B;
