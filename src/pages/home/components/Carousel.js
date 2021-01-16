@@ -1,11 +1,11 @@
-import React, { Component, Fragment } from "react";
+import React, { PureComponent, Fragment } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/swiper.scss";
 import "swiper/components/pagination/pagination.scss";
 import SwiperCore, { Pagination, Autoplay } from "swiper";
 import { connect } from "react-redux";
 
-class Carousel extends Component {
+class Carousel extends PureComponent {
   render() {
     SwiperCore.use([Pagination, Autoplay]);
     const { list } = this.props;

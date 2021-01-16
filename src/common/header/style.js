@@ -1,16 +1,16 @@
 import styled from "styled-components";
-import logoPic from "../../image/eStudio.png";
+import logoPic from "../../image/logo1.png";
 
 export const HeaderWrapper = styled.div`
   position: relative;
   height: 56px;
   border-bottom: 1px solid #f0f0f0;
+  user-select: none;
 `;
 
-export const Logo = styled.a.attrs({
-  href: "/",
-})`
+export const Logo = styled.div`
   position: absolute;
+  user-select: none;
   top: 0;
   left: 0;
   object-fit: cover;
@@ -23,6 +23,7 @@ export const Logo = styled.a.attrs({
 `;
 
 export const Nav = styled.div`
+  user-select: none;
   width: 960px;
   padding-right: 70px;
   box-sizing: border-box;
@@ -31,6 +32,7 @@ export const Nav = styled.div`
 `;
 
 export const NavItem = styled.div`
+  cursor: pointer;
   line-height: 56px;
   padding: 0 15px;
   font-size: 17px;
@@ -110,6 +112,7 @@ export const Addition = styled.div`
 `;
 
 export const Button = styled.div`
+  cursor: pointer;
   float: right;
   line-height: 38px;
   border-radius: 19px;
@@ -162,6 +165,8 @@ export const SearchInfoSwitch = styled.span`
 `;
 
 export const SearchInfoItem = styled.a`
+  user-select: none;
+  cursor: pointer;
   font-size: 12px;
   display: block;
   float: left;

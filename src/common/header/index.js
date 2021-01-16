@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import { CSSTransition } from "react-transition-group";
 import { connect } from "react-redux";
 import * as actionCreators from "./store/actionCreators";
+import { Link } from "react-router-dom";
+import { actionCreators as loginActionCreators } from "../../pages/login/store";
 import {
   HeaderWrapper,
   Logo,
@@ -30,8 +32,10 @@ class Header extends Component {
       handleMouseLeave,
       handleChangePage,
     } = this.props;
+
     const jsList = list.toJS();
     const pageList = [];
+    
 
     if (jsList.length) {
       for (let i = (page - 1) * 10; i < page * 10; i++) {
@@ -70,14 +74,31 @@ class Header extends Component {
   }
 
   render() {
-    const { focused, handleInputFocus, handleInputBlur, list } = this.props;
+    const {
+      focused,
+      handleInputFocus,
+      handleInputBlur,
+      list,
+      login,
+      logout,
+    } = this.props;
     return (
       <HeaderWrapper>
-        <Logo />
+        <Link to="/">
+          <Logo />
+        </Link>
         <Nav>
           <NavItem className="left active">Home</NavItem>
-          <NavItem className="left">Detail</NavItem>
-          <NavItem className="right">Log in</NavItem>
+          {login ? (
+            <NavItem onClick={logout} className="right">
+              Log out
+            </NavItem>
+          ) : (
+            <Link to="/login">
+              <NavItem className="right">Log in</NavItem>
+            </Link>
+          )}
+
           <NavItem className="right">
             <i className="iconfont">&#xe636;</i>
           </NavItem>
@@ -96,11 +117,17 @@ class Header extends Component {
           </SearchWrapper>
         </Nav>
         <Addition>
-          <Button className="writing">
-            <i className="iconfont">&#xe77b;</i>
-            Write
-          </Button>
-          <Button className="reg">Register</Button>
+          <Link to="/write">
+            <Button className="writing">
+              <i className="iconfont">&#xe77b;</i>
+              Write
+            </Button>
+          </Link>
+          {!login ? (
+            <Link to="/login">
+              <Button className="reg">Register</Button>
+            </Link>
+          ) : null}
         </Addition>
       </HeaderWrapper>
     );
@@ -114,6 +141,7 @@ const mapStateToProps = (state) => {
     page: state.getIn(["header", "page"]),
     mouseIn: state.getIn(["header", "mouseIn"]),
     totalPage: state.getIn(["header", "totalPage"]),
+    login: state.getIn(["login", "login"]),
   };
 };
 
@@ -147,6 +175,9 @@ const mapDispatchToProps = (dispatch) => {
       } else {
         dispatch(actionCreators.changePage(1));
       }
+    },
+    logout() {
+      dispatch(loginActionCreators.logout());
     },
   };
 };

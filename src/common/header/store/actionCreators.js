@@ -8,6 +8,8 @@ const changeList = (data) => ({
   totalPage: Math.ceil(data.length / 10),
 });
 
+
+
 export const searchFocus = () => ({
   type: actionsTypes.SEARCH_FOCUS,
 });
